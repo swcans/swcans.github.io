@@ -29,10 +29,12 @@ body {
 .glitch {
     font-size: 5rem;
     font-weight: 700;
-    color: #fff;
+    color: #76b82a;
     position: relative;
     text-transform: uppercase;
     letter-spacing: 0.2em;
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+    animation: heartbeat 1.2s infinite ease-in-out;
 }
 
 .glitch:before,
@@ -45,18 +47,38 @@ body {
     height: 100%;
     background: #0a0a0a;
     overflow: hidden;
+    opacity: 0.8;
 }
 
 .glitch:before {
-    left: 2px;
-    text-shadow: -2px 0 #ff00ff;
-    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+    left: 1px;
+    text-shadow: -1px 0 rgba(255, 255, 255, 0.3);
+    animation: glitch-anim-1 3s infinite linear alternate-reverse;
 }
 
 .glitch:after {
-    left: -2px;
-    text-shadow: -2px 0 #00ffff, 2px 2px #ff00ff;
-    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+    left: -1px;
+    text-shadow: -1px 0 #000000, 1px 1px rgba(255, 255, 255, 0.2);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    40% {
+        transform: scale(1.02);
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    }
+    50% {
+        transform: scale(1);
+        text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+    60% {
+        transform: scale(1.02);
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    }
 }
 
 @keyframes glitch-anim-1 {
@@ -102,8 +124,8 @@ nav a {
 }
 
 nav a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+    color: #76b82a;
+    text-shadow: 0 0 3px rgba(118, 184, 42, 0.5);
 }
 
 main {
@@ -113,23 +135,40 @@ main {
 section {
     margin-bottom: 3rem;
     padding: 2rem;
-    border: 1px solid #00ffff;
+    border: 1px solid #76b82a;
     border-radius: 10px;
-    background-color: rgba(0, 255, 255, 0.05);
+    background-color: rgba(118, 184, 42, 0.05);
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 h1 {
     font-size: 3rem;
-    background: linear-gradient(to right, #00ffff, #ff00ff);
+    background: linear-gradient(90deg, #76b82a, #ffffff, #76b82a);
+    background-size: 200% auto;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradientFlow 3s ease infinite;
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
 }
 
 h2 {
     font-size: 2rem;
-    border-bottom: 2px solid #00ffff;
+    border-bottom: 2px solid #76b82a;
     display: inline-block;
     margin-bottom: 1rem;
+    color: #76b82a;
 }
 
 .icon-links {
@@ -159,8 +198,8 @@ h2 {
 }
 
 .icon-links a:hover {
-    color: #ff00ff;
-    text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff;
+    color: #76b82a;
+    text-shadow: 0 0 3px rgba(118, 184, 42, 0.5);
 }
 
 .video-container {
@@ -197,7 +236,55 @@ h2 {
     background-color: #0a0a0a;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #00ffff;
+    border: 1px solid #76b82a;
+}
+
+/* Coming Soon Animation */
+.coming-soon-container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-text {
+    font-size: 2rem;
+    color: #e0e0e0;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #76b82a;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.dot:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
     border-radius: 10px;
     width: 80%;
     max-width: 600px;
@@ -216,7 +303,7 @@ h2 {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: #ff00ff;
+    color: #76b82a;
     text-decoration: none;
     cursor: pointer;
 }

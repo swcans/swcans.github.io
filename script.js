@@ -5,34 +5,49 @@ window.addEventListener('load', () => {
     const aboutBtn = document.getElementById('about-btn');
     const aboutModal = document.getElementById('about-modal');
     const closeBtn = document.querySelector('.close-btn');
+    const glitchText = document.querySelector('.glitch');
+    let hasInteracted = false;
 
     const showMainContent = (skipAnimation) => {
         if (splash.style.opacity !== '0') {
-            if (skipAnimation) {
+            splash.style.opacity = '0';
+            setTimeout(() => {
                 splash.style.display = 'none';
                 header.style.opacity = '1';
                 main.style.opacity = '1';
                 document.body.style.overflow = 'auto';
-            } else {
-                splash.style.opacity = '0';
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                    header.style.opacity = '1';
-                    main.style.opacity = '1';
-                    document.body.style.overflow = 'auto';
-                }, 1000);
-            }
+            }, skipAnimation ? 0 : 1000);
         }
     };
 
     if (window.location.hash === '#main-content') {
         showMainContent(true);
     } else {
-        const splashTimeout = setTimeout(() => showMainContent(false), 10000);
+        // Auto-transition after 1.2s if no interaction
+        const splashTimeout = setTimeout(() => {
+            if (!hasInteracted) {
+                showMainContent(false);
+            }
+        }, 1200);
 
-        splash.addEventListener('click', () => {
+        // Handle text hover and click
+        glitchText.addEventListener('mouseover', () => {
+            hasInteracted = true;
+        });
+
+        glitchText.addEventListener('click', () => {
+            hasInteracted = true;
             clearTimeout(splashTimeout);
             showMainContent(false);
+        });
+
+        // Handle general splash screen click
+        splash.addEventListener('click', (event) => {
+            if (event.target !== glitchText) {
+                hasInteracted = true;
+                clearTimeout(splashTimeout);
+                showMainContent(false);
+            }
         });
     }
 
