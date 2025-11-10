@@ -29,7 +29,7 @@ body {
 .glitch {
     font-size: 5rem;
     font-weight: 700;
-    color: #76b82a;
+    color: #00ff01;
     position: relative;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -111,6 +111,24 @@ header {
     align-items: center;
 }
 
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 8px #00ff01);
+    transform: scale(1.1);
+}
+
 header h1 a {
     text-decoration: none;
 }
@@ -124,8 +142,8 @@ nav a {
 }
 
 nav a:hover {
-    color: #76b82a;
-    text-shadow: 0 0 3px rgba(118, 184, 42, 0.5);
+    color: #00ff01;
+    text-shadow: 0 0 3px rgba(0, 255, 1, 0.5);
 }
 
 main {
@@ -135,9 +153,9 @@ main {
 section {
     margin-bottom: 3rem;
     padding: 2rem;
-    border: 1px solid #76b82a;
+    border: 1px solid #00ff01;
     border-radius: 10px;
-    background-color: rgba(118, 184, 42, 0.05);
+    background-color: rgba(0, 255, 1, 0.05);
 }
 
 @keyframes gradientFlow {
@@ -154,7 +172,7 @@ section {
 
 h1 {
     font-size: 3rem;
-    background: linear-gradient(90deg, #76b82a, #ffffff, #76b82a);
+    background: linear-gradient(90deg, #00ff01, #ffffff, #00ff01);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
@@ -165,10 +183,10 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    border-bottom: 2px solid #76b82a;
+    border-bottom: 2px solid #00ff01;
     display: inline-block;
     margin-bottom: 1rem;
-    color: #76b82a;
+    color: #00ff01;
 }
 
 .icon-links {
@@ -198,8 +216,8 @@ h2 {
 }
 
 .icon-links a:hover {
-    color: #76b82a;
-    text-shadow: 0 0 3px rgba(118, 184, 42, 0.5);
+    color: #00ff01;
+    text-shadow: 0 0 3px rgba(0, 255, 1, 0.5);
 }
 
 .video-container {
@@ -236,7 +254,7 @@ h2 {
     background-color: #0a0a0a;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #76b82a;
+    border: 1px solid #00ff01;
 }
 
 /* Coming Soon Animation */
@@ -261,7 +279,7 @@ h2 {
 .dot {
     width: 12px;
     height: 12px;
-    background-color: #76b82a;
+    background-color: #00ff01;
     border-radius: 50%;
     display: inline-block;
     animation: pulse 1.5s infinite ease-in-out;
@@ -285,11 +303,6 @@ h2 {
         opacity: 1;
     }
 }
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    position: relative;
-}
 
 .close-btn {
     color: #aaa;
@@ -303,7 +316,7 @@ h2 {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: #76b82a;
+    color: #00ff01;
     text-decoration: none;
     cursor: pointer;
 }
